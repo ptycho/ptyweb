@@ -1,4 +1,4 @@
-name: ptypyviewer2
+name: ptyweb
 channels:
 - defaults
 - conda-forge

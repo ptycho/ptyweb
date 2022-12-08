@@ -41,4 +41,4 @@ router.include_router(viewer.viewer_router)
 
 app.include_router(router)
 
-openapi_patcher.patch_openapi(app, title="PtyViewer2 API", version="0.1.0")
+openapi_patcher.patch_openapi(app, title="Ptyweb API", version="0.1.0")
