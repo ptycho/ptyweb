@@ -38,7 +38,7 @@ const Configurator = () => {
 
   return (
     <div>
-      <div>
+      <div className={"configurator"}>
         <label>
           Select ptyr file
           <input type="file" accept=".ptyr" onChange={onPtyrFileChange}/>
