@@ -9,7 +9,7 @@ from util import openapi_patcher
 
 app = fastapi.FastAPI()
 
-if os.getenv("DEVELOPMENT") == "true":
+if os.getenv("PRODUCTION") != "true":
     import socket
 
     # Fetching local IP address to allow CORS
@@ -17,8 +17,8 @@ if os.getenv("DEVELOPMENT") == "true":
     local_ip = socket.gethostbyname(hostname)
 
     origins = [
-        f"http://{local_ip}:3001",
-        "http://localhost:3001"
+        f"http://{local_ip}:3000",
+        "http://localhost:3000"
     ]
 
     # Allowing access to API from external sources while in development
