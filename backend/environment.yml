@@ -1,0 +1,20 @@
+name: ptypyviewer2
+channels:
+- defaults
+- conda-forge
+dependencies:
+- pip=22.2.2
+- numpy
+- scipy
+- matplotlib
+- h5py
+- pyzmq
+- mpi4py
+- pillow
+- pyfftw
+- pip
+- fastapi
+- uvicorn
+- pyjwt
+- msgpack-python
+- python-multipart

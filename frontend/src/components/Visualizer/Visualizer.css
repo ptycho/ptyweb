@@ -1,0 +1,11 @@
+.visualizer {
+}
+
+.visualizer__heatmap {
+    display: flex;
+    max-width: 600px;
+    max-height: 400px;
+
+    width: 100vw;
+    height: 66vw;
+}

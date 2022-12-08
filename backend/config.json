@@ -1,0 +1,4 @@
+{
+  "beamline_cluster_configs": "/dls_sw/apps/ptychography_tools/cluster_configurations/",
+  "jwt_secret_key": "CHANGE_ME"
+}
