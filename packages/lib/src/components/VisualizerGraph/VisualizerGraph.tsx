@@ -10,7 +10,7 @@ import {
   CoreChartOptions, ChartOptions, ChartData, Title
 } from 'chart.js'
 import {Line} from 'react-chartjs-2';
-import {GraphData} from "../../network";
+import {GraphData} from "../../types/models/GraphData";
 import TitledElement from "../TitledElement/TitledElement";
 
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Tooltip, Legend, Title)
