@@ -7,10 +7,8 @@ export { OpenAPI } from './core/OpenAPI';
 export type { OpenAPIConfig } from './core/OpenAPI';
 
 export type { Body_get_viewer_data } from './models/Body_get_viewer_data';
-export type { GraphData } from './models/GraphData';
 export type { HTTPValidationError } from './models/HTTPValidationError';
 export type { ReconstructionViewerResponse } from './models/ReconstructionViewerResponse';
-export type { ScanData } from './models/ScanData';
 export type { ValidationError } from './models/ValidationError';
 
 export { DefaultService } from './services/DefaultService';

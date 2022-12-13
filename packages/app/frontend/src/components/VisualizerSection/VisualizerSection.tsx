@@ -1,8 +1,8 @@
 import React from 'react';
-import Visualizer from "../Visualizer/Visualizer";
 import "./VisualizerSection.css"
-import VisualizerGraph from "../VisualizerGraph/VisualizerGraph";
 import {ReconstructionViewerResponse} from "../../network";
+import VisualizerGraph from "@ptyweb/lib/src/components/VisualizerGraph/VisualizerGraph";
+import Visualizer from "@ptyweb/lib/src/components/Visualizer/Visualizer";
 
 interface Props {
   data: ReconstructionViewerResponse
@@ -11,9 +11,9 @@ interface Props {
 const VisualizerSection = ({data}: Props) => {
   return (
     <div className={"visualizerSection"}>
-        <Visualizer data={data.object} title={"Object"}/>
-        <Visualizer data={data.probe} title={"Probe"}/>
-        <VisualizerGraph data={data.graph}/>
+      <Visualizer data={data.object} title={"Object"}/>
+      <Visualizer data={data.probe} title={"Probe"}/>
+      <VisualizerGraph data={data.graph}/>
     </div>
   );
 };
