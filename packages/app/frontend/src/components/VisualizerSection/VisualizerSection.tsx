@@ -1,8 +1,9 @@
 import React from 'react';
 import "./VisualizerSection.css"
 import {ReconstructionViewerResponse} from "../../network";
-import VisualizerGraph from "@ptyweb/lib/src/components/VisualizerGraph/VisualizerGraph";
-import Visualizer from "@ptyweb/lib/src/components/Visualizer/Visualizer";
+import {Visualizer} from "@ptyweb/lib";
+import {VisualizerGraph} from "@ptyweb/lib";
+
 
 interface Props {
   data: ReconstructionViewerResponse

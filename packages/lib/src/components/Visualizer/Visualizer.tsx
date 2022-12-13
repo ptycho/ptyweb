@@ -17,7 +17,7 @@ import {
 import '@h5web/lib/styles.css';
 import {ScanData} from "../../types/models/ScanData"
 import "./Visualizer.css"
-import TitledElement from "../TitledElement/TitledElement";
+import {TitledElement} from "../TitledElement";
 
 
 const VisualizerDisplayMode = {
@@ -35,7 +35,7 @@ const VisualizerDisplayMode = {
   },
 }
 
-interface Props {
+export interface VisualizerProps {
   data: ScanData
   title: string
 }
@@ -71,7 +71,7 @@ const scaleFactors: scaleFactorsType = {
   }
 }
 
-const Visualizer = ({data, title}: Props) => {
+export const Visualizer = ({data, title}: VisualizerProps) => {
   const [displayMode, setDisplayMode] = useState<string>(VisualizerDisplayMode.ANGLE.id)
   const [customDomain, setCustomDomain] = useState<CustomDomain>([null, null]);
   const [colourMap, setColourMap] = useState<ColorMap>("Viridis")
@@ -263,5 +263,3 @@ const Visualizer = ({data, title}: Props) => {
     </div>
   );
 };
-
-export default Visualizer;
