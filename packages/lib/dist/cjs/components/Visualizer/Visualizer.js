@@ -32,7 +32,7 @@ const mathUtil_1 = require("../../util/mathUtil");
 const ndarray_1 = __importDefault(require("ndarray"));
 const lib_1 = require("@h5web/lib");
 require("@h5web/lib/styles.css");
-require("./Visualizer.css");
+// import "./Visualizer.css"
 const TitledElement_1 = require("../TitledElement");
 const VisualizerDisplayMode = {
     ANGLE: {

@@ -3,7 +3,7 @@ import { complexAbs, complexAngle } from "../../util/mathUtil";
 import ndarray from "ndarray";
 import { ColorMapSelector, DomainSlider, HeatmapVis, ScaleType, Selector, Separator, ToggleGroup, Toolbar } from "@h5web/lib";
 import '@h5web/lib/styles.css';
-import "./Visualizer.css";
+// import "./Visualizer.css"
 import { TitledElement } from "../TitledElement";
 const VisualizerDisplayMode = {
     ANGLE: {

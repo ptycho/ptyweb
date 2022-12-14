@@ -1,5 +1,5 @@
 import React from 'react';
-import "./TitledElement.css"
+// import "./TitledElement.css"
 
 export interface TitledElementProps {
   title: string
