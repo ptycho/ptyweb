@@ -8,9 +8,7 @@ const dirname = fileURLToPath(new URL('.', import.meta.url));
 const pkgJson = JSON.parse(fs.readFileSync(path.resolve(dirname, `./package.json`)))
 
 export const externals = new Set([
-  ...Object.keys(pkgJson.dependencies).filter(
-    (dep) => dep !== 'react-keyed-flatten-children' // Fix https://github.com/silx-kit/h5web/issues/914
-  ),
+  ...Object.keys(pkgJson.dependencies),
   ...Object.keys(pkgJson.peerDependencies),
 ]);
 
