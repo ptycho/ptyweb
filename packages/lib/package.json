@@ -9,9 +9,10 @@
     "dist"
   ],
   "scripts": {
-    "build": "npm run build:vite && npm run build:dts",
+    "build": "npm run build:vite && npm run build:dts && npm run build:css",
     "build:vite": "vite build",
     "build:dts": "tsc --emitDeclarationOnly",
+    "build:css": "vite build --config vite.styles.config.js && rimraf dist/styles.js",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
   },

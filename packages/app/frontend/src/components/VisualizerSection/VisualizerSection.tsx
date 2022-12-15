@@ -3,7 +3,7 @@ import "./VisualizerSection.css"
 import {ReconstructionViewerResponse} from "../../network";
 import {Visualizer} from "@ptyweb/lib";
 import {VisualizerGraph} from "@ptyweb/lib";
-
+import "@ptyweb/lib/dist/style.css"
 
 interface Props {
   data: ReconstructionViewerResponse
