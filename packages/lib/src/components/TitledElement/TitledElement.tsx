@@ -1,12 +1,12 @@
 import React from 'react';
-import "./TitledElement.css"
+// import "./TitledElement.css"
 
-interface Props {
+export interface TitledElementProps {
   title: string
   children: React.ReactNode
 }
 
-const TitledElement = ({title, children}: Props) => {
+export const TitledElement = ({title, children}: TitledElementProps) => {
   return (
     <div>
       <span className={"titledElement__title"}>{title}</span>
@@ -16,5 +16,3 @@ const TitledElement = ({title, children}: Props) => {
     </div>
   );
 };
-
-export default TitledElement;

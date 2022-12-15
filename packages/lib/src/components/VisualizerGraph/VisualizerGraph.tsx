@@ -1,26 +1,27 @@
 import React, {useMemo} from 'react';
 import {
-  Chart as ChartJS,
   CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
-  Tooltip,
+  Chart as ChartJS,
+  ChartData,
+  ChartOptions,
   Legend,
-  CoreChartOptions, ChartOptions, ChartData, Title
+  LinearScale,
+  LineElement,
+  PointElement,
+  Title,
+  Tooltip
 } from 'chart.js'
 import {Line} from 'react-chartjs-2';
-import {GraphData} from "../../network";
-import TitledElement from "../TitledElement/TitledElement";
+import {GraphData} from "../../types/models/GraphData";
+import {TitledElement} from "../TitledElement";
 
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Tooltip, Legend, Title)
 
-interface Props {
+export interface VisualizerGraphProps {
   data: GraphData
 }
 
-const VisualizerGraph = ({data: graphData}: Props) => {
-
+export const VisualizerGraph = ({data: graphData}: VisualizerGraphProps) => {
   const graphFormattedData: ChartData<"line"> = useMemo(() => {
     return {
       labels: graphData.iteration_numbers,
@@ -94,4 +95,3 @@ const VisualizerGraph = ({data: graphData}: Props) => {
   );
 };
 
-export default VisualizerGraph;
