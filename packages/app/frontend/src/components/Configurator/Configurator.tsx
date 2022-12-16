@@ -4,47 +4,37 @@ import VisualizerSection from "../VisualizerSection/VisualizerSection";
 import {DefaultService, ReconstructionViewerResponse} from "../../network";
 
 const Configurator = () => {
-  const ptyrFile = React.useRef<File | undefined>(undefined)
   const [reconstructionData, setReconstructionData] = React.useState<ReconstructionViewerResponse | undefined>(undefined)
   const [message, setMessage] = React.useState<string | undefined>(undefined)
-  const [allowSubmit, setAllowSubmit] = React.useState<boolean>(false)
+  const [allowSubmit, setAllowSubmit] = React.useState<boolean>(true)
 
   const onPtyrFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files) {
-      ptyrFile.current = e.target.files[0]
-      setAllowSubmit(true)
-    } else {
-      ptyrFile.current = undefined
+      setMessage("Loading file...")
       setAllowSubmit(false)
-    }
-  }
-
-  const fetchReconstructionData = () => {
-    if (ptyrFile.current) {
-      // Getting file blob
-      setMessage("Submitting file...")
-      setAllowSubmit(false)
-      DefaultService.getViewerData({file: ptyrFile.current}).then((res) => {
+      setReconstructionData(undefined)
+      DefaultService.getViewerData({file: e.target.files[0]}).then((res) => {
         setReconstructionData(res)
         setMessage(undefined)
+      }).catch(e => {
+        setMessage("Error: " + e.message)
       }).finally(() => {
         setAllowSubmit(true)
       })
-    } else {
-      setMessage("Please select a file")
-      setAllowSubmit(false)
     }
   }
 
   return (
     <div>
       <div className={"configurator"}>
-        <label>
-          Select ptyr file
-          <input type="file" accept=".ptyr" onChange={onPtyrFileChange}/>
-        </label>
-
-        <button onClick={fetchReconstructionData} disabled={!allowSubmit}>Submit</button>
+        {
+          allowSubmit && (
+            <label>
+              Select ptyr file
+              <input type="file" accept=".ptyr" onChange={onPtyrFileChange}/>
+            </label>
+          )
+        }
 
         {message && <span>{message}</span>}
       </div>
