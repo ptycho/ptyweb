@@ -1,21 +1,12 @@
-from fastapi import HTTPException, UploadFile
+from fastapi import HTTPException
 
 import reconstruction_viewer.scan_data_manipulator as data_manipulator
-from reconstruction_viewer import normalization, convert_file
+from reconstruction_viewer import normalization
 
 DOWN_SAMPLING_REMAINING_PIXELS = 150000
 
 
-def get_viewer_endpoint_response_dict(file: UploadFile) -> dict:
-    ptypy_data = convert_file.convert_file(file)
-
-    if ptypy_data is None:
-        raise HTTPException(status_code=400, detail="Invalid file format")
-
-    meta_dict = ptypy_data.runtime
-    probe_dict = ptypy_data.probe
-    object_dict = ptypy_data.obj
-
+def get_response_from_ptypy(meta_dict, probe_dict, object_dict, is_from_file) -> dict:
     scan_names = list(probe_dict.keys())
 
     if len(scan_names) == 0:

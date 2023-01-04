@@ -2,8 +2,8 @@
 /* tslint:disable */
 /* eslint-disable */
 
-import type {GraphData} from "@ptyweb/lib";
-import type {ScanData} from "@ptyweb/lib";
+import type { GraphData } from './GraphData';
+import type { ScanData } from './ScanData';
 
 export type ReconstructionViewerResponse = {
   probe: ScanData;

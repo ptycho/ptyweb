@@ -13,7 +13,7 @@ const Configurator = () => {
       setMessage("Loading file...")
       setAllowSubmit(false)
       setReconstructionData(undefined)
-      DefaultService.getViewerData({file: e.target.files[0]}).then((res) => {
+      DefaultService.getViewerDataFromFile({file: e.target.files[0]}).then((res) => {
         setReconstructionData(res)
         setMessage(undefined)
       }).catch(e => {
