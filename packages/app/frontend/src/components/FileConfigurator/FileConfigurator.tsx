@@ -1,9 +1,9 @@
 import React from 'react';
-import './Configurator.css'
+import '../Configurator/Configurator.css'
 import VisualizerSection from "../VisualizerSection/VisualizerSection";
 import {DefaultService, ReconstructionViewerResponse} from "../../network";
 
-const Configurator = () => {
+const FileConfigurator = () => {
   const [reconstructionData, setReconstructionData] = React.useState<ReconstructionViewerResponse | undefined>(undefined)
   const [message, setMessage] = React.useState<string | undefined>(undefined)
   const [allowSubmit, setAllowSubmit] = React.useState<boolean>(true)
@@ -48,4 +48,4 @@ const Configurator = () => {
   );
 };
 
-export default Configurator;
+export default FileConfigurator;

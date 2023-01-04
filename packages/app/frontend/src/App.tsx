@@ -1,13 +1,15 @@
 import React from 'react';
 import './App.css';
-import Configurator from "./components/Configurator/Configurator";
+import FileConfigurator from "./components/FileConfigurator/FileConfigurator";
+import LiveConfigurator from "./components/LiveConfigurator/LiveConfigurator";
 
 function App() {
   return (
     <div className="App">
       <h1>PtyWeb</h1>
 
-      <Configurator />
+      {/*<FileConfigurator />*/}
+      <LiveConfigurator />
     </div>
   );
 }
