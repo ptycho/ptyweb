@@ -28,18 +28,20 @@ def get_response_from_ptypy(meta_dict, probe_dict, object_dict, is_from_file) ->
     probe_data.down_sample(remaining_pixels=DOWN_SAMPLING_REMAINING_PIXELS)
     object_data.down_sample(remaining_pixels=DOWN_SAMPLING_REMAINING_PIXELS)
 
+    p_size_name = "_psize" if is_from_file else "psize"
+
     # We are using dicts instead of models because pydamic models are slow with such large amounts of data
     return {
         "probe": {
             **probe_data.to_dict(),
             **{
-                "pixel_size": probe_scan.get("_psize")[0].astype(float) / probe_data.zoom_scale_factor
+                "pixel_size": probe_scan.get(p_size_name)[0].astype(float) / probe_data.zoom_scale_factor
             }
         },
         "object": {
             **object_data.to_dict(),
             **{
-                "pixel_size": object_scan.get("_psize")[0].astype(float) / object_data.zoom_scale_factor
+                "pixel_size": object_scan.get(p_size_name)[0].astype(float) / object_data.zoom_scale_factor
             }
         },
         "graph": graph_normalised
