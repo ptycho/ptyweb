@@ -1,11 +1,11 @@
 import React from 'react';
 import '../Configurator/Configurator.css'
 import VisualizerSection from "../VisualizerSection/VisualizerSection";
-import {DefaultService, ReconstructionViewerResponse, StartScannerRequest} from "../../network";
+import {ApiError, DefaultService, ReconstructionViewerResponse, StartScannerRequest} from "../../network";
 
 const LiveConfigurator = () => {
-  const [ip, setIp] = React.useState("");
-  const [port, setPort] = React.useState("");
+  const [ip, setIp] = React.useState("127.0.0.1");
+  const [port, setPort] = React.useState("5560");
   const [reconstructionData, setReconstructionData] = React.useState<ReconstructionViewerResponse | undefined>(undefined)
   const [message, setMessage] = React.useState<string | undefined>(undefined)
   const [allowSubmit, setAllowSubmit] = React.useState<boolean>(true)
@@ -58,10 +58,21 @@ const LiveConfigurator = () => {
     DefaultService
       .getViewerDataFromLive()
       .then((response) => {
+        setMessage(undefined)
         setReconstructionData(response)
       })
-      .catch((error) => {
-        setMessage(error.message)
+      .catch((err) => {
+        if (err instanceof ApiError) {
+          if (err.body.detail) {
+            setMessage(err.body.detail)
+            return
+          }
+
+          setMessage(err.body + "")
+        } else {
+          setReconstructionData(undefined)
+          setMessage(err.message)
+        }
       })
       .finally(() => {
         fetchIntervalId.current = window.setTimeout(updateReconstructionData, 5000)
@@ -86,6 +97,7 @@ const LiveConfigurator = () => {
           IP
           <input
             type={"text"}
+            value={ip}
             onInput={(e) => {
               setIp(e.currentTarget.value)
             }}/>
@@ -95,6 +107,7 @@ const LiveConfigurator = () => {
           Port
           <input
             type={"number"}
+            value={port}
             onInput={(e) => {
               setPort(e.currentTarget.value)
             }}/>
