@@ -3,7 +3,7 @@ import fastapi.openapi.utils
 import msgpack
 from fastapi import UploadFile
 
-from models import reconstruction_viewer
+from models import reconstruction_viewer, start_scanner_request
 from reconstruction_viewer import from_file_response, from_live_response, scanner
 
 viewer_router = fastapi.APIRouter(prefix="/viewer")
@@ -49,14 +49,14 @@ def get_viewer_data_from_live():
     })
 
 
-@viewer_router.post("/start-scanner", response_model=bool)
-def start_scanner(ip: str, port: int):
-    scanner.start_scanner(ip, port)
+@viewer_router.post("/start-scanner", response_model=bool, operation_id="start_scanner")
+def start_scanner(request_data: start_scanner_request.StartScannerRequest):
+    scanner.start_scanner(request_data.ip, request_data.port)
 
     return True
 
 
-@viewer_router.get("/stop-scanner", response_model=bool)
+@viewer_router.get("/stop-scanner", response_model=bool, operation_id="stop_scanner")
 def stop_scanner():
     scanner.stop_scanner()
 
