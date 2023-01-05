@@ -32,6 +32,7 @@ const LiveConfigurator = () => {
     }
 
     setMessage("Starting scanner...")
+    setReconstructionData(undefined)
 
     const startScannerRequest: StartScannerRequest = {
       ip: ip,
@@ -76,7 +77,6 @@ const LiveConfigurator = () => {
       })
       .finally(() => {
         fetchIntervalId.current = window.setTimeout(updateReconstructionData, 5000)
-        console.log(fetchIntervalId.current)
       })
   }
 
@@ -84,7 +84,6 @@ const LiveConfigurator = () => {
   React.useEffect(() => {
     return () => {
       if (fetchIntervalId.current) {
-        console.log("Clearing interval")
         window.clearTimeout(fetchIntervalId.current)
       }
     }
