@@ -9,6 +9,8 @@ const LiveConfigurator = () => {
   const [reconstructionData, setReconstructionData] = React.useState<ReconstructionViewerResponse | undefined>(undefined)
   const [message, setMessage] = React.useState<string | undefined>(undefined)
   const [allowSubmit, setAllowSubmit] = React.useState<boolean>(true)
+  const [isScanning, setIsScanning] = React.useState<boolean>(false)
+  const fetchIntervalId = React.useRef<number | undefined>(undefined)
 
   const startScanner = () => {
     if (!allowSubmit) {
@@ -41,6 +43,8 @@ const LiveConfigurator = () => {
       .startScanner(startScannerRequest)
       .then((response) => {
         setMessage(undefined)
+        setIsScanning(true)
+        updateReconstructionData();
       })
       .catch((error) => {
         setMessage(error.message)
@@ -49,6 +53,31 @@ const LiveConfigurator = () => {
         setAllowSubmit(true)
       })
   }
+
+  const updateReconstructionData = () => {
+    DefaultService
+      .getViewerDataFromLive()
+      .then((response) => {
+        setReconstructionData(response)
+      })
+      .catch((error) => {
+        setMessage(error.message)
+      })
+      .finally(() => {
+        fetchIntervalId.current = window.setTimeout(updateReconstructionData, 5000)
+        console.log(fetchIntervalId.current)
+      })
+  }
+
+  // Cancel the fetch timeout when the component unmounts
+  React.useEffect(() => {
+    return () => {
+      if (fetchIntervalId.current) {
+        console.log("Clearing interval")
+        window.clearTimeout(fetchIntervalId.current)
+      }
+    }
+  }, [])
 
   return (
     <div>
