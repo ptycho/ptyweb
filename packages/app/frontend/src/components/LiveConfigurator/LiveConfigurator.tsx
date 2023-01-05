@@ -9,7 +9,7 @@ const LiveConfigurator = () => {
   const [reconstructionData, setReconstructionData] = React.useState<ReconstructionViewerResponse | undefined>(undefined)
   const [message, setMessage] = React.useState<string | undefined>(undefined)
   const [allowSubmit, setAllowSubmit] = React.useState<boolean>(true)
-  const [isScanning, setIsScanning] = React.useState<boolean>(false)
+  const isScanning = React.useRef<boolean>(false)
   const fetchIntervalId = React.useRef<number | undefined>(undefined)
 
   const startScanner = () => {
@@ -44,7 +44,7 @@ const LiveConfigurator = () => {
       .startScanner(startScannerRequest)
       .then((response) => {
         setMessage(undefined)
-        setIsScanning(true)
+        isScanning.current = true
         updateReconstructionData();
       })
       .catch((error) => {
@@ -61,6 +61,11 @@ const LiveConfigurator = () => {
       .then((response) => {
         setMessage(undefined)
         setReconstructionData(response)
+
+        if (response.is_finished) {
+          setMessage("Reconstruction finished")
+          isScanning.current = false
+        }
       })
       .catch((err) => {
         if (err instanceof ApiError) {
@@ -76,7 +81,9 @@ const LiveConfigurator = () => {
         }
       })
       .finally(() => {
-        fetchIntervalId.current = window.setTimeout(updateReconstructionData, 5000)
+        if (isScanning.current) {
+          fetchIntervalId.current = window.setTimeout(updateReconstructionData, 5000)
+        }
       })
   }
 

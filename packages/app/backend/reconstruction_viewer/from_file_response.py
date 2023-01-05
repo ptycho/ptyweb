@@ -1,5 +1,6 @@
 from fastapi import HTTPException, UploadFile
 
+from enums import status
 from reconstruction_viewer import convert_file, from_ptypy_response
 
 
@@ -13,4 +14,4 @@ def get_response_from_file(file: UploadFile) -> dict:
     probe_dict = ptypy_data.probe
     object_dict = ptypy_data.obj
 
-    return from_ptypy_response.get_response_from_ptypy(meta_dict, probe_dict, object_dict, True)
+    return from_ptypy_response.get_response_from_ptypy(meta_dict, probe_dict, object_dict, status.Status.FINISHED, True)

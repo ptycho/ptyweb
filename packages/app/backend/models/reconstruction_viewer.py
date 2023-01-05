@@ -16,6 +16,7 @@ class ScanData(BaseModel):
 
 
 class ReconstructionViewerResponse(BaseModel):
+    is_finished: bool
     probe: ScanData
     object: ScanData
     graph: GraphData

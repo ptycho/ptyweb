@@ -1,12 +1,13 @@
 from fastapi import HTTPException
 
 import reconstruction_viewer.scan_data_manipulator as data_manipulator
+from enums import status
 from reconstruction_viewer import normalization
 
 DOWN_SAMPLING_REMAINING_PIXELS = 150000
 
 
-def get_response_from_ptypy(meta_dict, probe_dict, object_dict, is_from_file) -> dict:
+def get_response_from_ptypy(meta_dict, probe_dict, object_dict, current_status, is_from_file) -> dict:
     scan_names = list(probe_dict.keys())
 
     if len(scan_names) == 0:
@@ -31,7 +32,9 @@ def get_response_from_ptypy(meta_dict, probe_dict, object_dict, is_from_file) ->
     p_size_name = "_psize" if is_from_file else "psize"
 
     # We are using dicts instead of models because pydamic models are slow with such large amounts of data
+    print(current_status)
     return {
+        "is_finished": current_status == status.Status.FINISHED,
         "probe": {
             **probe_data.to_dict(),
             **{

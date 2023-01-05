@@ -8,7 +8,8 @@ def get_response_from_live() -> dict:
         pr_dict, ob_dict, meta_dict = scanner.update_data()
 
         status = scanner.get_status()
-        return from_ptypy_response.get_response_from_ptypy(meta_dict, pr_dict, ob_dict, False)
+
+        return from_ptypy_response.get_response_from_ptypy(meta_dict, pr_dict, ob_dict, status, False)
     else:
         # Return empty data if scanner is not running
         raise HTTPException(status_code=400, detail="Scanner is not running")
