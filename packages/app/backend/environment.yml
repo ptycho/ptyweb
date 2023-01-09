@@ -1,18 +1,9 @@
 name: ptyweb
 channels:
-- defaults
 - conda-forge
 dependencies:
-- pip=22.2.2
-- numpy
-- scipy
-- matplotlib
-- h5py
-- pyzmq
-- mpi4py
-- pillow
-- pyfftw
 - pip
+- numpy
 - fastapi
 - uvicorn
 - pyjwt
