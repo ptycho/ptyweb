@@ -1,0 +1,28 @@
+.header {
+    /* Making row */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    padding: 10px 0;
+
+    background-color: #194568;
+    border-radius: 0 0 10px 10px;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
+}
+
+.header a {
+    padding: 0 10px;
+    text-decoration: none;
+    color: #EFF1FE;
+    font-weight: bold;
+    font-size: 17px;
+}
+
+.header a:hover {
+    color: #dadada;
+}
+
+.header a.is-active {
+    color: #F8D849;
+}

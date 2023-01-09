@@ -1,18 +1,20 @@
 import React from 'react';
-import {Link} from "react-router-dom";
+import {NavLink} from "react-router-dom";
+import "./Header.css"
 
 const Header = () => {
   return (
     <div>
-      <nav>
-        <ul>
-          <li>
-            <Link to="/live">Live</Link>
-          </li>
-          <li>
-            <Link to="/file">File</Link>
-          </li>
-        </ul>
+      <nav className={"header"}>
+
+        <NavLink to="/live" className={({isActive}) =>
+          isActive ? "is-active" : undefined
+        }>Live</NavLink>
+
+        <NavLink to="/file" className={({isActive}) =>
+          isActive ? "is-active" : undefined
+        }>File</NavLink>
+
       </nav>
 
       <h1>PtyWeb</h1>
