@@ -9,7 +9,8 @@
     "dist"
   ],
   "scripts": {
-    "build": "npm run build:vite && npm run build:dts && npm run build:css",
+    "preinstall": "npx only-allow pnpm",
+    "build": "pnpm run build:vite && pnpm run build:dts && pnpm run build:css",
     "build:vite": "vite build",
     "build:dts": "tsc --emitDeclarationOnly",
     "build:css": "vite build --config vite.styles.config.js && rimraf dist/styles.js",
@@ -17,14 +18,14 @@
     "build-storybook": "build-storybook"
   },
   "peerDependencies": {
-    "@h5web/lib": "^6.5.0",
     "@react-three/fiber": "^7.0.29",
     "chart.js": "^3.9.1",
-    "react": "link:../node_modules/react",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-scripts": "^5.0.1",
     "react-chartjs-2": "^4.3.1",
-    "react-dom": "link:../node_modules/react-dom",
-    "react-scripts": "link:../node_modules/react-scripts",
-    "three": "^0.146.0"
+    "three": "^0.146.0",
+    "@h5web/lib": "^6.5.0"
   },
   "dependencies": {
     "ndarray": "^1.0.19"
@@ -52,6 +53,9 @@
     "babel-plugin-named-exports-order": "^0.0.2",
     "chart.js": "^3.9.1",
     "prop-types": "^15.8.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-scripts": "5.0.1",
     "react-chartjs-2": "^4.3.1",
     "rimraf": "^3.0.2",
     "three": "^0.146.0",

@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "@msgpack/msgpack": "^2.8.0",
-    "@ptyweb/lib": "file:../../lib",
+    "@ptyweb/lib": "file:..\\..\\lib\\release\\ptyweb-lib-1.0.0.tgz",
     "@reduxjs/toolkit": "^1.8.6",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/user-event": "^13.5.0",
@@ -29,6 +29,7 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "preinstall": "npx only-allow pnpm",
     "start": "react-scripts start",
     "build": "react-scripts build"
   },
