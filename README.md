@@ -16,6 +16,9 @@ up of three parts:
   [FastAPI](https://fastapi.tiangolo.com/) that provides a REST API for
   fetching data from PtyPy. This is used by @ptyweb/app to fetch data.
 
+We are using pnpm instead of vanilla npm to manage the dependencies of this
+project. This is because we encountered [this](https://github.com/npm/cli/issues/5305) issue when using npm.
+
 ## Installation
 
 There are 2 installation methods, however the steps below are required for both.
@@ -27,21 +30,24 @@ There are 2 installation methods, however the steps below are required for both.
 git clone https://github.com/ptycho/ptyweb.git
 ```
 
-2. Installing the frontend dependencies:
+You now have some options on how to install the PtyWeb backend
 
-First we need to build @ptyweb/lib. These steps are temporary until we make a npm package.
-```bash
-cd ptyweb/packages/lib
-npm install
-npm run build
-```
+2. Installing the frontend dependencies:
 
 ```bash
 cd ptyweb/packages/app/frontend
 npm install
 ```
 
-You now have some options on how to install the PtyWeb backend
+### Installing @ptyweb/lib (for @ptyweb/lib development only)
+
+The following steps are only required if you want to develop the @ptyweb/lib package. You can skip
+these steps if you only want to use the PtyWeb frontend (@ptyweb/app).
+
+```bash
+cd ptyweb/packages/lib
+pnpm install
+```
 
 ### Installing PtyWeb backend into the PtyPy environment (recommended)
 
@@ -83,6 +89,31 @@ pip install .
 
 3. You should now be good to go 🎉, try following the [Usage](#Usage) instructions below.
 
+## Building
+
+### Building @ptyweb/lib (for @ptyweb/lib development only)
+
+The following steps are only required if you want to develop the @ptyweb/lib package. You can skip
+these steps if you only want to use the PtyWeb frontend (@ptyweb/app).
+
+Once you are happy with your changes and want to test them in @ptyweb/app, you will need to build
+the @ptyweb/lib package:
+
+```bash
+cd ptyweb/packages/lib
+pnpm run build
+pnpm pack
+mv <package_name>.tgz release
+```
+
+Now we have packaged our build, we can install it into @ptyweb/app
+
+```bash
+cd ptyweb/packages/app/frontend
+pnpm uninstall @ptyweb/lib
+pnpm install ../../lib/release/<package_name>.tgz
+```
+
 ## Usage
 
 ### Frontend
@@ -91,7 +122,7 @@ pip install .
 
 ```bash
 cd ptyweb/packages/app/frontend
-npm run start
+pnpm run start
 ```
 
 2. Open the app in your browser at http://localhost:3000.
