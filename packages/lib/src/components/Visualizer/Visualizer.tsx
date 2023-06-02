@@ -104,9 +104,21 @@ export const Visualizer = ({data, title}: VisualizerProps) => {
       const columnIndex = flatIndex % width
       const real = data.real[rowIndex][columnIndex]
       const imaginary = data.imaginary[rowIndex][columnIndex]
+      
+      let abs = complexAbs(real, imaginary)
+      let angle = complexAngle(real, imaginary)
+      
+      // Filter out NaN values
+      if (isNaN(abs)) {
+        abs = 0
+      }
+      
+      if (isNaN(angle)) {
+        angle = 0
+      }
 
-      absDataRaw[flatIndex] = complexAbs(real, imaginary)
-      angleDataRaw[flatIndex] = complexAngle(real, imaginary)
+      absDataRaw[flatIndex] = abs
+      angleDataRaw[flatIndex] = angle
     }
 
     return {
@@ -125,7 +137,7 @@ export const Visualizer = ({data, title}: VisualizerProps) => {
         displayData = angleData
         break
       case VisualizerDisplayMode.COMBINED.id:
-        alert("No implemented yet!")
+        // TODO implement combined display mode
         throw `Renderer for visualizer display mode ${displayMode} is not implemented`
       default:
         throw `Renderer for visualizer display mode ${displayMode} is not implemented`
@@ -206,6 +218,27 @@ export const Visualizer = ({data, title}: VisualizerProps) => {
 
         <Separator/>
 
+        <ToggleGroup
+          role="radiogroup"
+          value={displayMode}
+          onChange={(newDisplayMode) => {
+            if (newDisplayMode === VisualizerDisplayMode.COMBINED.id) {
+              alert("Combined mode is not implemented yet");
+              return;
+            }
+
+            setDisplayMode(newDisplayMode);
+          }}
+        >
+          {
+            Object.values(VisualizerDisplayMode).map(({id, name}) => (
+              <ToggleGroup.Btn label={name} value={id} key={id}/>
+            ))
+          }
+        </ToggleGroup>
+
+        <Separator/>
+
         <ColorMapSelector
           value={colourMap}
           onValueChange={setColourMap}
@@ -228,20 +261,6 @@ export const Visualizer = ({data, title}: VisualizerProps) => {
           options={Object.values(scaleFactors).map(factor => factor.name)}
           optionComponent={props => (<span>{props.option}</span>)}
         />
-
-        <Separator/>
-
-        <ToggleGroup
-          role="radiogroup"
-          value={displayMode}
-          onChange={setDisplayMode}
-        >
-          {
-            Object.values(VisualizerDisplayMode).map(({id, name}) => (
-              <ToggleGroup.Btn label={name} value={id} key={id}/>
-            ))
-          }
-        </ToggleGroup>
       </Toolbar>
 
       {
