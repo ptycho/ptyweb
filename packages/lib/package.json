@@ -28,6 +28,7 @@
   },
   "dependencies": {
     "@h5web/lib": "file:lib/h5web-lib-0.0.1.tgz",
+    "@types/offscreencanvas": "^2019.7.0",
     "ndarray": "^1.0.19"
   },
   "author": "",
@@ -46,8 +47,8 @@
     "@types/ndarray": "^1.0.11",
     "@types/node": "^16.11.68",
     "@types/path-browserify": "^1.0.0",
-    "@types/react": "^17.0.2",
-    "@types/react-dom": "^17.0.2",
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.0",
     "babel-plugin-named-exports-order": "^0.0.2",
     "chart.js": "^3.9.1",
     "prop-types": "^15.8.1",

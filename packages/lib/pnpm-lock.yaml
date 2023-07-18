@@ -8,6 +8,9 @@ dependencies:
   '@h5web/lib':
     specifier: file:lib/h5web-lib-0.0.1.tgz
     version: file:lib/h5web-lib-0.0.1.tgz(@react-three/fiber@8.13.5)(react-dom@18.2.0)(react@18.2.0)(three@0.146.0)
+  '@types/offscreencanvas':
+    specifier: ^2019.7.0
+    version: 2019.7.0
   ndarray:
     specifier: ^1.0.19
     version: 1.0.19
@@ -53,11 +56,11 @@ devDependencies:
     specifier: ^1.0.0
     version: 1.0.0
   '@types/react':
-    specifier: ^17.0.2
-    version: 17.0.58
+    specifier: ^18.2.0
+    version: 18.2.0
   '@types/react-dom':
-    specifier: ^17.0.2
-    version: 17.0.19
+    specifier: ^18.2.0
+    version: 18.2.0
   babel-plugin-named-exports-order:
     specifier: ^0.0.2
     version: 0.0.2
@@ -2335,7 +2338,7 @@ packages:
       react: '>=16'
     dependencies:
       '@types/mdx': 2.0.5
-      '@types/react': 17.0.58
+      '@types/react': 18.2.0
       react: 18.2.0
     dev: true
 
@@ -4005,6 +4008,10 @@ packages:
     resolution: {integrity: sha512-WKG4gTr8przEZBiJ5r3s8ZIAoMXNbOgQ+j/d5O4X3x6kZJRLNvyUJuUK/KoG3+8BaOHPhp2m7WC6JKKeovDSzQ==}
     dev: true
 
+  /@types/offscreencanvas@2019.7.0:
+    resolution: {integrity: sha512-PGcyveRIpL1XIqK8eBsmRBt76eFgtzuPiSTyKHZxnGemp2yzGzWpjYKAfK3wIMiU7eH+851yEpiuP8JZerTmWg==}
+    dev: false
+
   /@types/parse-json@4.0.0:
     resolution: {integrity: sha512-//oorEZjL6sbPcKUaCdIGlIUeH26mgzimjBB77G6XRgnDl/L5wOnpyBGRe/Mmf5CVW3PwEBE1NjiMZ/ssFh4wA==}
     dev: true
@@ -4036,23 +4043,23 @@ packages:
     resolution: {integrity: sha512-EEhsLsD6UsDM1yFhAvy0Cjr6VwmpMWqFBCb9w07wVugF7w9nfajxLuVmngTIpgS6svCnm6Vaw+MZhoDCKnOfsw==}
     dev: true
 
-  /@types/react-dom@17.0.19:
-    resolution: {integrity: sha512-PiYG40pnQRdPHnlf7tZnp0aQ6q9tspYr72vD61saO6zFCybLfMqwUCN0va1/P+86DXn18ZWeW30Bk7xlC5eEAQ==}
+  /@types/react-dom@18.2.0:
+    resolution: {integrity: sha512-8yQrvS6sMpSwIovhPOwfyNf2Wz6v/B62LFSVYQ85+Rq3tLsBIG7rP5geMxaijTUxSkrO6RzN/IRuIAADYQsleA==}
     dependencies:
-      '@types/react': 17.0.58
+      '@types/react': 18.2.0
 
   /@types/react-reconciler@0.26.7:
     resolution: {integrity: sha512-mBDYl8x+oyPX/VBb3E638N0B7xG+SPk/EAMcVPeexqus/5aTpTphQi0curhhshOqRrc9t6OPoJfEUkbymse/lQ==}
     dependencies:
-      '@types/react': 17.0.58
+      '@types/react': 18.2.0
 
   /@types/react-reconciler@0.28.2:
     resolution: {integrity: sha512-8tu6lHzEgYPlfDf/J6GOQdIc+gs+S2yAqlby3zTsB3SP2svlqTYe5fwZNtZyfactP74ShooP2vvi1BOp9ZemWw==}
     dependencies:
-      '@types/react': 17.0.58
+      '@types/react': 18.2.0
 
-  /@types/react@17.0.58:
-    resolution: {integrity: sha512-c1GzVY97P0fGxwGxhYq989j4XwlcHQoto6wQISOC2v6wm3h0PORRWJFHlkRjfGsiG3y1609WdQ+J+tKxvrEd6A==}
+  /@types/react@18.2.0:
+    resolution: {integrity: sha512-0FLj93y5USLHdnhIhABk83rm8XEGA7kH3cr+YUlvxoUGp1xNt/DINUMvqPxLyOQMzLmZe8i4RTHbvb8MC7NmrA==}
     dependencies:
       '@types/prop-types': 15.7.5
       '@types/scheduler': 0.16.3
@@ -4276,7 +4283,7 @@ packages:
     peerDependencies:
       react: ^16.3.0-0 || ^17.0.0-0 || ^18.0.0-0
     dependencies:
-      '@types/react': 17.0.58
+      '@types/react': 18.2.0
       '@visx/group': 3.0.0(react@18.2.0)
       '@visx/point': 3.0.1
       '@visx/scale': 3.0.0
@@ -4293,8 +4300,8 @@ packages:
       react: ^16.0.0-0 || ^17.0.0-0 || ^18.0.0-0
       react-dom: ^16.0.0-0 || ^17.0.0-0 || ^18.0.0-0
     dependencies:
-      '@types/react': 17.0.58
-      '@types/react-dom': 17.0.19
+      '@types/react': 18.2.0
+      '@types/react-dom': 18.2.0
       prop-types: 15.8.1
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
@@ -4312,7 +4319,7 @@ packages:
     peerDependencies:
       react: ^16.8.0-0 || ^17.0.0-0 || ^18.0.0-0
     dependencies:
-      '@types/react': 17.0.58
+      '@types/react': 18.2.0
       '@visx/event': 3.0.1
       '@visx/point': 3.0.1
       prop-types: 15.8.1
@@ -4322,7 +4329,7 @@ packages:
   /@visx/event@3.0.1:
     resolution: {integrity: sha512-tK1EUYQLLStBuoCMbm8LJ3VbDyCVI8HjT0pMRQxm+C75FSIVWvrThgrfrC9sWOFnEMEYWspZO7hI5zjsPKjLQA==}
     dependencies:
-      '@types/react': 17.0.58
+      '@types/react': 18.2.0
       '@visx/point': 3.0.1
     dev: false
 
@@ -4331,7 +4338,7 @@ packages:
     peerDependencies:
       react: ^16.0.0-0 || ^17.0.0-0 || ^18.0.0-0
     dependencies:
-      '@types/react': 17.0.58
+      '@types/react': 18.2.0
       '@visx/curve': 3.0.0
       '@visx/group': 3.0.0(react@18.2.0)
       '@visx/point': 3.0.1
@@ -4347,7 +4354,7 @@ packages:
     peerDependencies:
       react: ^16.0.0-0 || ^17.0.0-0 || ^18.0.0-0
     dependencies:
-      '@types/react': 17.0.58
+      '@types/react': 18.2.0
       classnames: 2.3.2
       prop-types: 15.8.1
       react: 18.2.0
@@ -4376,7 +4383,7 @@ packages:
       '@types/d3-path': 1.0.9
       '@types/d3-shape': 1.3.8
       '@types/lodash': 4.14.194
-      '@types/react': 17.0.58
+      '@types/react': 18.2.0
       '@visx/curve': 3.0.0
       '@visx/group': 3.0.0(react@18.2.0)
       '@visx/scale': 3.0.0
@@ -4394,7 +4401,7 @@ packages:
       react: ^16.3.0-0 || ^17.0.0-0 || ^18.0.0-0
     dependencies:
       '@types/lodash': 4.14.194
-      '@types/react': 17.0.58
+      '@types/react': 18.2.0
       classnames: 2.3.2
       lodash: 4.17.21
       prop-types: 15.8.1
@@ -4408,7 +4415,7 @@ packages:
       react: ^16.8.0-0 || ^17.0.0-0 || ^18.0.0-0
       react-dom: ^16.8.0-0 || ^17.0.0-0 || ^18.0.0-0
     dependencies:
-      '@types/react': 17.0.58
+      '@types/react': 18.2.0
       '@visx/bounds': 3.0.0(react-dom@18.2.0)(react@18.2.0)
       classnames: 2.3.2
       prop-types: 15.8.1
