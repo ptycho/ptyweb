@@ -1,6 +1,6 @@
 {
   "name": "@ptyweb/lib",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "",
   "main": "./dist/index.js",
   "module": "./dist/index.esm.js",
@@ -27,7 +27,7 @@
     "three": "^0.146.0"
   },
   "dependencies": {
-    "@h5web/lib": "file:lib/h5web-lib-0.0.1.tgz",
+    "@h5web/lib": "file:lib/h5web-lib-7.1.0.tgz",
     "@types/offscreencanvas": "^2019.7.0",
     "ndarray": "^1.0.19"
   },
