@@ -15,7 +15,7 @@ import {
   Toolbar
 } from "@h5web/lib";
 import '@h5web/lib/styles.css';
-import {ScanData} from "../../types/models/ScanData"
+import {ScanData} from "../../types"
 // import "./Visualizer.css"
 import {TitledElement} from "../TitledElement";
 

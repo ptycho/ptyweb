@@ -1,9 +1,9 @@
 import React from 'react';
-import './App.css';
 import FileConfigurator from "./components/FileConfigurator/FileConfigurator";
 import LiveConfigurator from "./components/LiveConfigurator/LiveConfigurator";
 import {Navigate, Route, Routes} from "react-router-dom";
 import Header from "./components/Header/Header";
+import '@h5web/lib/styles.css';
 
 function App() {
   return (
