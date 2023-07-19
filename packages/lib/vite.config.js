@@ -10,6 +10,7 @@ const pkgJson = JSON.parse(fs.readFileSync(path.resolve(dirname, `./package.json
 export const externals = new Set([
   ...Object.keys(pkgJson.dependencies),
   ...Object.keys(pkgJson.peerDependencies),
+  ...Object.keys(pkgJson.devDependencies),
 ]);
 
 export default defineConfig({
