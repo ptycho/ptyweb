@@ -36,7 +36,7 @@ You now have some options on how to install the PtyWeb backend
 
 ```bash
 cd ptyweb/packages/app/frontend
-npm install
+pnpm install
 ```
 
 ### Installing @ptyweb/lib (for @ptyweb/lib development only)
@@ -111,7 +111,8 @@ Now we have packaged our build, we can install it into @ptyweb/app
 ```bash
 cd ptyweb/packages/app/frontend
 pnpm uninstall @ptyweb/lib
-pnpm install ../../lib/release/<package_name>.tgz
+cp ../../lib/release/<package_name>.tgz lib/
+pnpm lib/<package_name>.tgz
 ```
 
 ## Usage
