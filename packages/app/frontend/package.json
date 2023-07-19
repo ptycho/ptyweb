@@ -1,6 +1,6 @@
 {
   "name": "frontend",
-  "version": "0.1.0",
+  "version": "2.0.0",
   "private": true,
   "dependencies": {
     "@h5web/lib": "file:lib\\h5web-lib-7.1.0.tgz",
